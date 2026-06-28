@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AFK for Windows Docs</title>
+  <meta name="description" content="Install and run AFK, a local Windows dictation app with Parakeet speech recognition and Gemma clarification.">
+  <link rel="icon" href="/assets/afk-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="AFK for Windows docs home">
+      <img src="/assets/afk-icon.png" alt="">
+      <span>AFK for Windows</span>
+    </a>
+    <nav aria-label="Docs">
+      <a href="#install">Install</a>
+      <a href="#models">Models</a>
+      <a href="#hotkeys">Hotkeys</a>
+      <a href="#troubleshoot">Troubleshoot</a>
+      <a class="download-link" href="/downloads/AFK-Setup-0.1.0.zip">Download</a>
+    </nav>
+  </header>
+
+  <main id="start">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Local dictation for Windows</p>
+        <h1>AFK for Windows Docs</h1>
+        <p class="lede">Install AFK, set up the official local models, and keep dictation running from the tray with global hotkeys.</p>
+        <div class="actions">
+          <a class="primary" href="/downloads/AFK-Setup-0.1.0.zip">Download installer</a>
+          <a class="secondary" href="https://github.com/kannansanjay2011-bit/AFK">GitHub repo</a>
+        </div>
+      </div>
+      <div class="signal-panel" aria-label="AFK status preview">
+        <div class="meter">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <strong>Tray app ready</strong>
+          <p>Ctrl+Space to dictate. Ctrl+Alt+K to clarify selected text.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="credit-band" aria-label="Project credit">
+      <p><strong>Credit:</strong> Keshav Jindal (<a href="https://github.com/keshavatearth">@keshavatearth</a>) created the original macOS app. This Windows version builds on that work with local Windows dictation, tray hotkeys, installer packaging, and model setup.</p>
+    </section>
+
+    <div class="docs-layout">
+      <aside class="toc" aria-label="Page sections">
+        <a href="#install">Install</a>
+        <a href="#models">Official models</a>
+        <a href="#hotkeys">Hotkeys</a>
+        <a href="#behavior">Paste behavior</a>
+        <a href="#troubleshoot">Troubleshooting</a>
+      </aside>
+
+      <div class="content">
+        <section id="install" class="doc-section">
+          <h2>Install</h2>
+          <ol>
+            <li>Download <a href="/downloads/AFK-Setup-0.1.0.zip">AFK Setup 0.1.0 ZIP</a>.</li>
+            <li>Run the installer. Windows SmartScreen may ask you to confirm because this local build is unsigned.</li>
+            <li>Open AFK once, choose your microphone, and leave it in the system tray.</li>
+          </ol>
+          <pre><code>cd "$env:LOCALAPPDATA\Programs\AFK"
+.\AFK.exe</code></pre>
+        </section>
+
+        <section id="models" class="doc-section">
+          <h2>Official Models</h2>
+          <p>AFK uses ONNX Parakeet for local speech recognition and GGUF Gemma models for Clarify. The installer includes the runtime; the large model files live in your roaming AFK model folder.</p>
+          <pre><code>$models = "$env:APPDATA\AFK\models\clarify"
+New-Item -ItemType Directory -Force -Path $models
+
+$hf = "$env:LOCALAPPDATA\Programs\AFK\resources\python\.venv\Scripts\hf.exe"
+& $hf download ggml-org/gemma-3-270m-GGUF --include gemma-3-270m-Q8_0.gguf --local-dir $models
+& $hf download ggml-org/gemma-4-E2B-it-GGUF --include gemma-4-E2B-it-Q8_0.gguf --local-dir $models</code></pre>
+        </section>
+
+        <section id="hotkeys" class="doc-section">
+          <h2>Hotkeys</h2>
+          <div class="key-grid">
+            <div><kbd>Ctrl</kbd><kbd>Space</kbd><span>Hold to dictate</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd><span>Toggle dictation</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd><span>Clarify selected text</span></div>
+          </div>
+          <p>AFK keeps running from the system tray. Closing the window hides it; quitting from the tray fully stops hotkeys.</p>
+        </section>
+
+        <section id="behavior" class="doc-section">
+          <h2>Paste Behavior</h2>
+          <p>After transcription, AFK pastes into the active text field and restores your previous clipboard. If there is no active text caret, it copies the transcript to the clipboard instead.</p>
+        </section>
+
+        <section id="troubleshoot" class="doc-section">
+          <h2>Troubleshooting</h2>
+          <div class="issue">
+            <h3>No speech detected</h3>
+            <p>Check Windows input volume, confirm the microphone is not muted, then pick the correct microphone in AFK settings.</p>
+          </div>
+          <div class="issue">
+            <h3>Clarify unavailable</h3>
+            <p>Install both GGUF model files into <code>%APPDATA%\AFK\models\clarify</code>. Restart AFK from the tray after downloading.</p>
+          </div>
+          <div class="issue">
+            <h3>Hotkeys stop working</h3>
+            <p>AFK must be running in the tray for global hotkeys. Enable Start on login in Settings.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+
