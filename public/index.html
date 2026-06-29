@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260629-panel-align">
+  <link rel="stylesheet" href="/styles.css?v=20260629-security-hotkeys">
 </head>
 <body>
   <header class="topbar">
@@ -43,7 +43,7 @@
         </div>
         <div>
           <strong>Tray app ready</strong>
-          <p>Ctrl+Space to dictate. Ctrl+Alt+K to clarify selected text.</p>
+          <p>Ctrl+Shift+Space to dictate. Ctrl+Alt+K to clarify selected text. Ctrl+Alt+L teaches AFK a correction.</p>
         </div>
       </div>
     </section>
@@ -56,7 +56,7 @@
       <div>
         <span class="label">Current build</span>
         <strong>AFK Setup 0.1.0 FIXED</strong>
-        <p>Includes the new AFK icon, faster paste behavior, transcript token cleanup, Clarify progress feedback, and tray-first startup.</p>
+        <p>Includes the new AFK icon, faster paste behavior, transcript token cleanup, voice-learning corrections, Clarify progress feedback, and tray-first startup.</p>
       </div>
       <a class="primary" href="/downloads/AFK-Setup-0.1.0.zip">Get the ZIP</a>
     </section>
@@ -73,6 +73,20 @@
           </ol>
           <pre><code>cd "$env:LOCALAPPDATA\Programs\AFK"
 .\AFK.exe</code></pre>
+        </section>
+
+        <section id="windows-warning" class="doc-section">
+          <h2>Windows Warning</h2>
+          <p>This build is unsigned, so Windows SmartScreen or Defender may warn before install. Do not disable antivirus. Verify the download hash first, then only continue if the hash matches this page.</p>
+          <div class="hash-grid">
+            <div><strong>ZIP SHA-256</strong><code>526BB6F726A59016F8EDEA8AEBA2D2C7A72CE9A7E5102B6AE2E55E69BA1B172F</code></div>
+            <div><strong>EXE SHA-256</strong><code>504F6E457B469BDBA905CF02D4247C96289BC04C32784F5F96272FDE0CB6D1DB</code></div>
+          </div>
+          <pre><code>Get-FileHash .\AFK-Setup-0.1.0.zip -Algorithm SHA256
+Unblock-File .\AFK-Setup-0.1.0.zip
+Expand-Archive .\AFK-Setup-0.1.0.zip -DestinationPath .\AFK-Setup -Force
+Get-FileHash ".\AFK-Setup\AFK Setup 0.1.0 FIXED.exe" -Algorithm SHA256</code></pre>
+          <p>The proper long-term fix is a trusted code-signing certificate and release reputation. Until then, treat the hash as the source of truth for this local build.</p>
         </section>
 
         <section id="first-run" class="doc-section">
@@ -102,9 +116,10 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
         <section id="hotkeys" class="doc-section">
           <h2>Hotkeys</h2>
           <div class="key-grid">
-            <div><kbd>Ctrl</kbd><kbd>Space</kbd><span>Hold to dictate</span></div>
-            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd><span>Toggle dictation</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd><span>Hold to dictate</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Space</kbd><span>Toggle dictation</span></div>
             <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd><span>Clarify selected text</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>L</kbd><span>Learn selected correction</span></div>
           </div>
           <p>AFK keeps running from the system tray. Closing the window hides it; quitting from the tray fully stops hotkeys.</p>
         </section>
