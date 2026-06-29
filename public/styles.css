@@ -18,6 +18,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   color: var(--ink);
   background:
@@ -37,6 +38,7 @@ a {
   top: 0;
   z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
@@ -62,7 +64,9 @@ a {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 18px;
   font-size: 14px;
   font-weight: 700;
@@ -98,6 +102,9 @@ nav a {
 }
 
 main {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   padding: 0 clamp(18px, 4vw, 56px) 64px;
 }
 
@@ -125,6 +132,7 @@ h1 {
   font-family: "Source Serif 4", Georgia, serif;
   font-size: clamp(56px, 10vw, 132px);
   line-height: .9;
+  overflow-wrap: anywhere;
 }
 
 .lede {
@@ -197,40 +205,65 @@ h1 {
   line-height: 1.55;
 }
 
-.docs-layout {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 860px);
-  gap: 40px;
-  align-items: start;
+.release-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 0 42px;
+  padding: 20px 22px;
+  color: white;
+  background: #101214;
+  border: 1px solid #28312c;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
-.toc {
-  position: sticky;
-  top: 90px;
-  display: grid;
-  gap: 8px;
-  padding: 12px;
-  border-left: 2px solid var(--line);
+.release-strip .label {
+  display: block;
+  margin-bottom: 6px;
+  color: #f0c35a;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
-.toc a {
-  padding: 8px 10px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
+.release-strip strong {
+  display: block;
+  font-size: clamp(22px, 3vw, 32px);
 }
 
-.toc a:hover {
+.release-strip p {
+  max-width: 720px;
+  margin: 8px 0 0;
+  color: #c9d5cf;
+  line-height: 1.55;
+}
+
+.release-strip .primary {
+  border-color: white;
   color: var(--ink);
+  background: white;
+  white-space: nowrap;
+}
+
+.docs-layout {
+  display: block;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .content {
   display: grid;
   gap: 22px;
+  min-width: 0;
+  width: 100%;
 }
 
 .doc-section {
+  min-width: 0;
   padding: clamp(22px, 4vw, 36px);
   background: rgba(255, 255, 255, .82);
   border: 1px solid var(--line);
@@ -255,7 +288,9 @@ h1 {
 }
 
 pre {
-  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
   margin: 18px 0 0;
   padding: 18px;
   color: #f1f7f4;
@@ -268,9 +303,49 @@ kbd {
   font-family: "Cascadia Mono", Consolas, monospace;
 }
 
+pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .key-grid {
   display: grid;
   gap: 12px;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.check-grid div {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 92px;
+  padding: 16px;
+  background: #fbfaf5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.check-grid strong {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  color: white;
+  background: var(--green-dark);
+  border-radius: 50%;
+}
+
+.check-grid span {
+  color: #30383b;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .key-grid div {
@@ -317,12 +392,12 @@ kbd {
 
   nav {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: visible;
+    justify-content: flex-start;
     padding-bottom: 2px;
   }
 
-  .hero,
-  .docs-layout {
+  .hero {
     grid-template-columns: 1fr;
   }
 
@@ -331,11 +406,13 @@ kbd {
     padding-top: 42px;
   }
 
-  .toc {
-    position: static;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-left: 0;
-    border-top: 2px solid var(--line);
+  .release-strip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .check-grid {
+    grid-template-columns: 1fr;
   }
 }
 

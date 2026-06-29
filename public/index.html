@@ -52,25 +52,37 @@
       <p><strong>Credit:</strong> Keshav Jindal (<a href="https://github.com/keshavatearth">@keshavatearth</a>) created the original macOS app. This Windows version builds on that work with local Windows dictation, tray hotkeys, installer packaging, and model setup.</p>
     </section>
 
-    <div class="docs-layout">
-      <aside class="toc" aria-label="Page sections">
-        <a href="#install">Install</a>
-        <a href="#models">Official models</a>
-        <a href="#hotkeys">Hotkeys</a>
-        <a href="#behavior">Paste behavior</a>
-        <a href="#troubleshoot">Troubleshooting</a>
-      </aside>
+    <section class="release-strip" aria-label="Current Windows build">
+      <div>
+        <span class="label">Current build</span>
+        <strong>AFK Setup 0.1.0 FIXED</strong>
+        <p>Includes the new AFK icon, faster paste behavior, transcript token cleanup, Clarify progress feedback, and tray-first startup.</p>
+      </div>
+      <a class="primary" href="/downloads/AFK-Setup-0.1.0.zip">Get the ZIP</a>
+    </section>
 
+    <div class="docs-layout">
       <div class="content">
         <section id="install" class="doc-section">
           <h2>Install</h2>
           <ol>
             <li>Download <a href="/downloads/AFK-Setup-0.1.0.zip">AFK Setup 0.1.0 ZIP</a>.</li>
-            <li>Run the installer. Windows SmartScreen may ask you to confirm because this local build is unsigned.</li>
+            <li>Extract the ZIP, then run <code>AFK Setup 0.1.0 FIXED.exe</code>.</li>
+            <li>Windows SmartScreen may ask you to confirm because this local build is unsigned.</li>
             <li>Open AFK once, choose your microphone, and leave it in the system tray.</li>
           </ol>
           <pre><code>cd "$env:LOCALAPPDATA\Programs\AFK"
 .\AFK.exe</code></pre>
+        </section>
+
+        <section id="first-run" class="doc-section">
+          <h2>First Run Checklist</h2>
+          <div class="check-grid">
+            <div><strong>1</strong><span>Pick the correct Windows microphone in AFK Settings.</span></div>
+            <div><strong>2</strong><span>Turn on Start on login so hotkeys work after a reboot.</span></div>
+            <div><strong>3</strong><span>Install both Clarify models if you want Ctrl+Alt+K correction.</span></div>
+            <div><strong>4</strong><span>Quit from the tray only when you want all global hotkeys to stop.</span></div>
+          </div>
         </section>
 
         <section id="models" class="doc-section">
@@ -108,6 +120,10 @@ $hf = "$env:LOCALAPPDATA\Programs\AFK\resources\python\.venv\Scripts\hf.exe"
           <div class="issue">
             <h3>Clarify unavailable</h3>
             <p>Install both GGUF model files into <code>%APPDATA%\AFK\models\clarify</code>. Restart AFK from the tray after downloading.</p>
+          </div>
+          <div class="issue">
+            <h3>Weird tokens appear in transcripts</h3>
+            <p>Install the current fixed build from this page. It strips chat-template tokens such as <code>&lt;|im_start|&gt;</code> before text reaches your app or clipboard.</p>
           </div>
           <div class="issue">
             <h3>Hotkeys stop working</h3>
