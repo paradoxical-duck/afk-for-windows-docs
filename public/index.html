@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260629-security-hotkeys">
+  <link rel="stylesheet" href="/styles.css?v=20260629-developers">
 </head>
 <body>
   <header class="topbar">
@@ -21,6 +21,7 @@
       <a href="#install">Install</a>
       <a href="#models">Models</a>
       <a href="#hotkeys">Hotkeys</a>
+      <a href="#developers">Developers</a>
       <a href="#troubleshoot">Troubleshoot</a>
       <a class="download-link" href="/downloads/AFK-Setup-0.1.0.zip">Download</a>
     </nav>
@@ -46,10 +47,6 @@
           <p>Ctrl+Shift+Space to dictate. Ctrl+Alt+K to clarify selected text. Ctrl+Alt+L teaches AFK a correction.</p>
         </div>
       </div>
-    </section>
-
-    <section class="credit-band" aria-label="Project credit">
-      <p><strong>Credit:</strong> Keshav Jindal (<a href="https://github.com/keshavatearth">@keshavatearth</a>) created the original macOS app. This Windows version builds on that work with local Windows dictation, tray hotkeys, installer packaging, and model setup.</p>
     </section>
 
     <section class="release-strip" aria-label="Current Windows build">
@@ -79,8 +76,8 @@
           <h2>Windows Warning</h2>
           <p>This build is unsigned, so Windows SmartScreen or Defender may warn before install. Do not disable antivirus. Verify the download hash first, then only continue if the hash matches this page.</p>
           <div class="hash-grid">
-            <div><strong>ZIP SHA-256</strong><code>526BB6F726A59016F8EDEA8AEBA2D2C7A72CE9A7E5102B6AE2E55E69BA1B172F</code></div>
-            <div><strong>EXE SHA-256</strong><code>504F6E457B469BDBA905CF02D4247C96289BC04C32784F5F96272FDE0CB6D1DB</code></div>
+            <div><strong>ZIP SHA-256</strong><code>FFB24168EEFACFA8BE2CB1B81119D00AE71BC971E3D76E0A5FF2B21A6959980A</code></div>
+            <div><strong>EXE SHA-256</strong><code>0699DC1FD735DECBEE888468924CB6EE8B6FE31D747113AAD8CA27249B9FD035</code></div>
           </div>
           <pre><code>Get-FileHash .\AFK-Setup-0.1.0.zip -Algorithm SHA256
 Unblock-File .\AFK-Setup-0.1.0.zip
@@ -127,6 +124,33 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
         <section id="behavior" class="doc-section">
           <h2>Paste Behavior</h2>
           <p>After transcription, AFK pastes into the active text field and restores your previous clipboard. If there is no active text caret, it copies the transcript to the clipboard instead.</p>
+        </section>
+
+        <section id="developers" class="doc-section">
+          <h2>Developers</h2>
+          <div class="developer-grid">
+            <article class="developer-card lead">
+              <span class="dev-role">Windows development</span>
+              <strong>Sohum Arora</strong>
+              <a href="https://github.com/paradoxical-duck">@paradoxical-duck</a>
+            </article>
+            <article class="developer-card">
+              <span class="dev-role">Repository collaborator</span>
+              <strong>Kannan Sanjay</strong>
+              <a href="https://github.com/kannansanjay2011-bit">@kannansanjay2011-bit</a>
+            </article>
+            <article class="developer-card">
+              <span class="dev-role">Repository collaborator</span>
+              <strong>pachisiaV11</strong>
+              <a href="https://github.com/pachisiaV11">@pachisiaV11</a>
+            </article>
+            <article class="developer-card original">
+              <span class="dev-role">Original macOS app</span>
+              <strong>Keshav Jindal</strong>
+              <a href="https://github.com/keshavatearth">@keshavatearth</a>
+              <p>Created the original macOS app. This Windows version builds on that work with local Windows dictation, tray hotkeys, installer packaging, and model setup.</p>
+            </article>
+          </div>
         </section>
 
         <section id="troubleshoot" class="doc-section">

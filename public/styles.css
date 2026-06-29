@@ -344,6 +344,64 @@ pre code {
   word-break: break-word;
 }
 
+.developer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.developer-card {
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  background: #fbfaf5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.developer-card.lead {
+  background: #101214;
+  color: white;
+  border-color: #28312c;
+}
+
+.developer-card.original {
+  grid-column: 1 / -1;
+  border-left: 6px solid var(--green);
+}
+
+.developer-card strong {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.developer-card a {
+  overflow-wrap: anywhere;
+  font-weight: 800;
+}
+
+.developer-card.lead a {
+  color: #8bd7b1;
+}
+
+.dev-role {
+  color: var(--rust);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.developer-card.lead .dev-role {
+  color: #f0c35a;
+}
+
+.developer-card p {
+  margin: 4px 0 0;
+}
+
 .check-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -442,6 +500,10 @@ kbd {
   }
 
   .check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-grid {
     grid-template-columns: 1fr;
   }
 }
