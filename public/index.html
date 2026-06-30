@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260630-trigger-modes">
+  <link rel="stylesheet" href="/styles.css?v=20260630-icon-training">
 </head>
 <body>
   <header class="topbar">
@@ -20,10 +20,12 @@
     <nav aria-label="Docs">
       <a href="#install">Install</a>
       <a href="#models">Models</a>
+      <a href="#training">Training</a>
+      <a href="#triggers">Triggers</a>
       <a href="#hotkeys">Hotkeys</a>
       <a href="#developers">Developers</a>
       <a href="#troubleshoot">Troubleshoot</a>
-      <a class="download-link" href="/downloads/AFK-Setup-0.1.0.zip">Download</a>
+      <a class="download-link" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install</a>
     </nav>
   </header>
 
@@ -34,7 +36,8 @@
         <h1>AFK for Windows Docs</h1>
         <p class="lede">Install AFK, set up the official local models, and keep dictation running from the tray with global hotkeys.</p>
         <div class="actions">
-          <a class="primary" href="/downloads/AFK-Setup-0.1.0.zip">Download installer</a>
+          <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with speech model</a>
+          <a class="secondary" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
           <a class="secondary" href="https://github.com/kannansanjay2011-bit/AFK">GitHub repo</a>
         </div>
       </div>
@@ -55,35 +58,43 @@
         <strong>AFK Setup 0.1.0 FIXED</strong>
         <p>Includes the new AFK icon, faster paste behavior, transcript token cleanup, voice-learning corrections, Clarify progress feedback, and tray-first startup.</p>
       </div>
-      <a class="primary" href="/downloads/AFK-Setup-0.1.0.zip">Get the ZIP</a>
+      <div class="release-actions">
+        <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with model</a>
+        <a class="secondary light" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
+      </div>
     </section>
 
     <div class="docs-layout">
       <div class="content">
         <section id="install" class="doc-section">
           <h2>Install</h2>
+          <div class="install-choice">
+            <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with speech model</a>
+            <a class="secondary" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
+          </div>
           <ol>
-            <li>Download <a href="/downloads/AFK-Setup-0.1.0.zip">AFK Setup 0.1.0 ZIP</a>.</li>
-            <li>Extract the ZIP, then run <code>AFK Setup 0.1.0 FIXED.exe</code>.</li>
-            <li>Windows SmartScreen may ask you to confirm because this local build is unsigned.</li>
-            <li>Open AFK once, choose your microphone, and leave it in the system tray.</li>
+            <li>For a first-time setup, download <a href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">AFK with speech model</a>.</li>
+            <li>Extract the ZIP, then run <code>Install-AFK-With-Speech-Model.ps1</code>. It copies Parakeet into your AFK model folder and opens the installer.</li>
+            <li>If Parakeet is already installed, use <a href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a> and run <code>AFK Setup 0.1.0 FIXED.exe</code>.</li>
+            <li>Open AFK, choose your microphone, and leave it in the system tray.</li>
+            <li>Turn on Start on login if you want the hotkeys ready after every reboot.</li>
           </ol>
-          <pre><code>cd "$env:LOCALAPPDATA\Programs\AFK"
-.\AFK.exe</code></pre>
+          <pre><code>Set-ExecutionPolicy -Scope Process Bypass
+.\Install-AFK-With-Speech-Model.ps1</code></pre>
         </section>
 
-        <section id="windows-warning" class="doc-section">
-          <h2>Windows Warning</h2>
-          <p>This build is unsigned, so Windows SmartScreen or Defender may warn before install. Do not disable antivirus. Verify the download hash first, then only continue if the hash matches this page.</p>
+        <section id="verify" class="doc-section">
+          <h2>Verify Download</h2>
+          <p>Use the hashes below when sharing the installer so everyone can confirm they received the exact published build.</p>
           <div class="hash-grid">
-            <div><strong>ZIP SHA-256</strong><code>782F404F5D64ACBE1A4E48EE3761F9BB83CB5E359355AA1E0A045394ADFD1A20</code></div>
-            <div><strong>EXE SHA-256</strong><code>FC6A3C73CC98640DCE0EBD2818DA1EFBC3EDF7E13E6DDF2C0155DD63E4A103C2</code></div>
+            <div><strong>With speech model ZIP SHA-256</strong><code>3A3EE8584C6DD208403CE8B5322DFF728CA1193165D4A2074E93EC8353CE6F2D</code></div>
+            <div><strong>Installer-only ZIP SHA-256</strong><code>3B57F1B57536CBCD5EE8DC251B7C5C560A3A79A954596349AA77F362D57E6802</code></div>
+            <div><strong>EXE SHA-256</strong><code>72FCFD4F6A82311675203606F1F81A21334141E1122AFBE856740BF98099D95A</code></div>
           </div>
           <pre><code>Get-FileHash .\AFK-Setup-0.1.0.zip -Algorithm SHA256
 Unblock-File .\AFK-Setup-0.1.0.zip
 Expand-Archive .\AFK-Setup-0.1.0.zip -DestinationPath .\AFK-Setup -Force
 Get-FileHash ".\AFK-Setup\AFK Setup 0.1.0 FIXED.exe" -Algorithm SHA256</code></pre>
-          <p>The proper long-term fix is a trusted code-signing certificate and release reputation. Until then, treat the hash as the source of truth for this local build.</p>
         </section>
 
         <section id="first-run" class="doc-section">
@@ -119,6 +130,33 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
             <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>L</kbd><span>Learn selected correction</span></div>
           </div>
           <p>AFK keeps running from the system tray. Closing the window hides it; quitting from the tray fully stops hotkeys.</p>
+        </section>
+
+        <section id="training" class="doc-section">
+          <h2>Training</h2>
+          <p>Training lets AFK remember how you personally say words that Parakeet gets wrong. Type the intended word or phrase, record yourself saying it, and AFK stores a local correction that is applied after transcription.</p>
+          <div class="feature-grid">
+            <div><strong>Word training</strong><span>Best for names, usernames, acronyms, and common phrases that are repeatedly misheard.</span></div>
+            <div><strong>Private storage</strong><span>Training data stays in your AFK app data folder on Windows and can be deleted item by item from the Train tab.</span></div>
+            <div><strong>Exact output</strong><span>The phrase AFK inserts keeps the capitalization and symbols you typed in the training output.</span></div>
+          </div>
+        </section>
+
+        <section id="triggers" class="doc-section">
+          <h2>Triggers</h2>
+          <p>Triggers turn a spoken phrase into reliable reusable text. Trigger matching is case-insensitive, so AFK treats “my email is” and “My Email Is” as the same trigger while preserving the exact output you typed.</p>
+          <div class="mode-grid">
+            <article>
+              <span>Autofill</span>
+              <strong>Keep the phrase, add the output</strong>
+              <p>Say <code>my email is</code> and AFK outputs <code>my email is sohumarora28@gmail.com</code>.</p>
+            </article>
+            <article>
+              <span>Autoreplace</span>
+              <strong>Replace the phrase entirely</strong>
+              <p>Say <code>github username</code> and AFK outputs <code>paradoxical_duck</code>.</p>
+            </article>
+          </div>
         </section>
 
         <section id="behavior" class="doc-section">

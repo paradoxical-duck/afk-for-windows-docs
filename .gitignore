@@ -3,3 +3,4 @@ node_modules/
 firebase-debug.log
 public/downloads/*.exe
 public/downloads/*.zip
+bundle/AFK-Setup-0.1.0-With-Speech-Model/
