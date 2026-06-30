@@ -47,7 +47,7 @@
         </div>
         <div>
           <strong>Tray app ready</strong>
-          <p>Ctrl+Shift+Space to dictate. Ctrl+Alt+K to clarify selected text. Ctrl+Alt+L teaches AFK a correction.</p>
+          <p>Ctrl+Space to dictate. Ctrl+Shift+Space toggles dictation. Escape cancels an in-flight recording.</p>
         </div>
       </div>
     </section>
@@ -87,9 +87,9 @@
           <h2>Verify Download</h2>
           <p>Use the hashes below when sharing the installer so everyone can confirm they received the exact published build.</p>
           <div class="hash-grid">
-            <div><strong>With speech model ZIP SHA-256</strong><code>3A3EE8584C6DD208403CE8B5322DFF728CA1193165D4A2074E93EC8353CE6F2D</code></div>
-            <div><strong>Installer-only ZIP SHA-256</strong><code>3B57F1B57536CBCD5EE8DC251B7C5C560A3A79A954596349AA77F362D57E6802</code></div>
-            <div><strong>EXE SHA-256</strong><code>72FCFD4F6A82311675203606F1F81A21334141E1122AFBE856740BF98099D95A</code></div>
+            <div><strong>With speech model ZIP SHA-256</strong><code>8015618E93D5614E7B45E652FF0626D1783E09F68706D00FF1BF98F2E819EF9A</code></div>
+            <div><strong>Installer-only ZIP SHA-256</strong><code>36790E7EBF37C4B6F24717EAE143E6E87A5AEB3353D99659BAA2D17E0C2C185E</code></div>
+            <div><strong>EXE SHA-256</strong><code>9D96BC5C221A95A47E65E0BB5D3A4E83F476921B153B9DB93549370A47DD14A5</code></div>
           </div>
           <pre><code>Get-FileHash .\AFK-Setup-0.1.0.zip -Algorithm SHA256
 Unblock-File .\AFK-Setup-0.1.0.zip
@@ -124,10 +124,11 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
         <section id="hotkeys" class="doc-section">
           <h2>Hotkeys</h2>
           <div class="key-grid">
-            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd><span>Hold to dictate</span></div>
-            <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Space</kbd><span>Toggle dictation</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Space</kbd><span>Hold to dictate</span></div>
+            <div><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Space</kbd><span>Toggle dictation</span></div>
             <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>K</kbd><span>Clarify selected text</span></div>
             <div><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>L</kbd><span>Learn selected correction</span></div>
+            <div><kbd>Esc</kbd><span>Cancel recording, transcription, or Clarify</span></div>
           </div>
           <p>AFK keeps running from the system tray. Closing the window hides it; quitting from the tray fully stops hotkeys.</p>
         </section>
