@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $modelSource = Join-Path $root "models\parakeet-v3"
 $modelTarget = Join-Path $env:APPDATA "AFK\models\parakeet-v3"
-$installer = Join-Path $root "AFK Setup 0.1.0 FIXED.exe"
+$installer = Join-Path $root "AFK Setup 1.0.0.exe"
 
 $required = @(
   "encoder-model.int8.onnx",

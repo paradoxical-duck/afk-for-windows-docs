@@ -25,7 +25,7 @@
       <a href="#hotkeys">Hotkeys</a>
       <a href="#developers">Developers</a>
       <a href="#troubleshoot">Troubleshoot</a>
-      <a class="download-link" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install</a>
+      <a class="download-link" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0-With-Speech-Model.zip">Install</a>
     </nav>
   </header>
 
@@ -36,8 +36,8 @@
         <h1>AFK for Windows Docs</h1>
         <p class="lede">Install AFK, set up the official local models, and keep dictation running from the tray with global hotkeys.</p>
         <div class="actions">
-          <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with speech model</a>
-          <a class="secondary" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
+          <a class="primary" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0-With-Speech-Model.zip">Install with speech model</a>
+          <a class="secondary" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0.zip">Installer only</a>
           <a class="secondary" href="https://github.com/kannansanjay2011-bit/AFK">GitHub repo</a>
         </div>
       </div>
@@ -55,12 +55,12 @@
     <section class="release-strip" aria-label="Current Windows build">
       <div>
         <span class="label">Current build</span>
-        <strong>AFK Setup 0.1.0 FIXED</strong>
+        <strong>AFK 1.0.0</strong>
         <p>Includes the new AFK icon, faster paste behavior, transcript token cleanup, voice-learning corrections, Clarify progress feedback, and tray-first startup.</p>
       </div>
       <div class="release-actions">
-        <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with model</a>
-        <a class="secondary light" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
+        <a class="primary" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0-With-Speech-Model.zip">Install with model</a>
+        <a class="secondary light" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0.zip">Installer only</a>
       </div>
     </section>
 
@@ -69,32 +69,17 @@
         <section id="install" class="doc-section">
           <h2>Install</h2>
           <div class="install-choice">
-            <a class="primary" href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">Install with speech model</a>
-            <a class="secondary" href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a>
+            <a class="primary" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0-With-Speech-Model.zip">Install with speech model</a>
+            <a class="secondary" href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0.zip">Installer only</a>
           </div>
           <ol>
-            <li>For a first-time setup, download <a href="/downloads/AFK-Setup-0.1.0-With-Speech-Model.zip">AFK with speech model</a>.</li>
-            <li>Extract the ZIP, then run <code>Install-AFK-With-Speech-Model.ps1</code>. It copies Parakeet into your AFK model folder and opens the installer.</li>
-            <li>If Parakeet is already installed, use <a href="/downloads/AFK-Setup-0.1.0.zip">Installer only</a> and run <code>AFK Setup 0.1.0 FIXED.exe</code>.</li>
+            <li>For a first-time setup, download <a href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0-With-Speech-Model.zip">AFK with speech model</a>.</li>
+            <li>Extract the ZIP into a normal folder. Do not run the installer from inside the ZIP preview.</li>
+            <li>Double-click <code>AFK Setup 1.0.0.exe</code>. The setup wizard installs AFK and copies the bundled Parakeet speech model automatically.</li>
+            <li>If Parakeet is already installed, use <a href="https://github.com/paradoxical-duck/afk-for-windows-docs/releases/download/v1.0.0/AFK-Setup-1.0.0.zip">Installer only</a> and double-click <code>AFK Setup 1.0.0.exe</code>.</li>
             <li>Open AFK, choose your microphone, and leave it in the system tray.</li>
             <li>Turn on Start on login if you want the hotkeys ready after every reboot.</li>
           </ol>
-          <pre><code>Set-ExecutionPolicy -Scope Process Bypass
-.\Install-AFK-With-Speech-Model.ps1</code></pre>
-        </section>
-
-        <section id="verify" class="doc-section">
-          <h2>Verify Download</h2>
-          <p>Use the hashes below when sharing the installer so everyone can confirm they received the exact published build.</p>
-          <div class="hash-grid">
-            <div><strong>With speech model ZIP SHA-256</strong><code>8015618E93D5614E7B45E652FF0626D1783E09F68706D00FF1BF98F2E819EF9A</code></div>
-            <div><strong>Installer-only ZIP SHA-256</strong><code>36790E7EBF37C4B6F24717EAE143E6E87A5AEB3353D99659BAA2D17E0C2C185E</code></div>
-            <div><strong>EXE SHA-256</strong><code>9D96BC5C221A95A47E65E0BB5D3A4E83F476921B153B9DB93549370A47DD14A5</code></div>
-          </div>
-          <pre><code>Get-FileHash .\AFK-Setup-0.1.0.zip -Algorithm SHA256
-Unblock-File .\AFK-Setup-0.1.0.zip
-Expand-Archive .\AFK-Setup-0.1.0.zip -DestinationPath .\AFK-Setup -Force
-Get-FileHash ".\AFK-Setup\AFK Setup 0.1.0 FIXED.exe" -Algorithm SHA256</code></pre>
         </section>
 
         <section id="first-run" class="doc-section">
@@ -150,7 +135,7 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
             <article>
               <span>Autofill</span>
               <strong>Keep the phrase, add the output</strong>
-              <p>Say <code>my email is</code> and AFK outputs <code>my email is sohumarora28@gmail.com</code>.</p>
+              <p>Say <code>my github username is</code> and AFK outputs <code>my github username is paradoxical_duck</code>.</p>
             </article>
             <article>
               <span>Autoreplace</span>
@@ -162,7 +147,7 @@ snapshot_download(repo_id="ggml-org/gemma-4-E2B-it-GGUF", allow_patterns="gemma-
 
         <section id="behavior" class="doc-section">
           <h2>Paste Behavior</h2>
-          <p>After transcription, AFK pastes into the active text field and restores your previous clipboard. If there is no active text caret, it copies the transcript to the clipboard instead.</p>
+          <p>After transcription, AFK types into the active text field without replacing your clipboard. It only copies the transcript to the clipboard if keyboard insertion fails.</p>
         </section>
 
         <section id="developers" class="doc-section">

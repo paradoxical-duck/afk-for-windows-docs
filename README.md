@@ -2,7 +2,7 @@
 
 Firebase Hosting docs for AFK for Windows.
 
-The Windows installer is deployed from `public/downloads/AFK-Setup-0.1.0.zip` but is intentionally ignored by Git because it is larger than GitHub's standard file limit. Firebase Spark hosting also blocks raw `.exe` downloads, so the public download is a ZIP containing the fixed installer.
+The Windows installer downloads are published as GitHub Release assets under `v1.0.0`. The public site links to ZIP files containing the setup wizard.
 
 Live site: https://afk-for-windows.web.app
 
